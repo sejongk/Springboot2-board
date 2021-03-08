@@ -1,5 +1,6 @@
 package com.springboot.web;
 
+import com.springboot.config.auth.LoginUser;
 import com.springboot.config.auth.dto.SessionUser;
 import com.springboot.services.posts.PostsService;
 import com.springboot.web.dto.PostsResponseDto;
@@ -26,9 +27,8 @@ public class IndexController {
      */
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser)httpSession.getAttribute("user");
         if(user != null) {
             System.out.println("유저가 존재하느냐 "+ user.getEmail());
             model.addAttribute("userName", user.getName());
