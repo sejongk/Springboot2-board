@@ -50,7 +50,7 @@ public class OAuthAttributes {
                 .email((String) response.get("email"))
                 .picture((String) response.get("profile_image"))
                 .attributes(response)
-                .nameAttributeKey(userNameAttributeName)
+                .nameAttributeKey(userNameAttributeName)//userName을 PK로 쓰는듯
                 .build();
     }
 

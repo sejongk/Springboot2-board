@@ -30,8 +30,8 @@ public class IndexController {
     public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts", postsService.findAllDesc());
         if(user != null) {
-            System.out.println("유저가 존재하느냐 "+ user.getEmail());
-            model.addAttribute("userName", user.getName());
+            System.out.println("does the user exist? => "+ user.getEmail() + " " + user.getName());
+            model.addAttribute("userName2", user.getName());
         }
         return "index";
     }
